@@ -2,13 +2,14 @@
 #include <vector>
 #include <limits>
 
-std::vector<int> merge(const std::vector<int>& a, const std::vector<int>& b)
+template<typename T>
+std::vector<T> merge(const std::vector<T>& a, const std::vector<T>& b)
 {
 	int iter_a{};
 	int iter_b{};
 	const unsigned int size_a{a.size()};
 	const unsigned int size_b{b.size()};
-	std::vector<int> output{};
+	std::vector<T> output{};
 	while (size_a + size_b - iter_a - iter_b > 0)
 	{
 		if (iter_a == size_a)
@@ -41,15 +42,16 @@ std::vector<int> merge(const std::vector<int>& a, const std::vector<int>& b)
 	return output;
 }
 
-std::vector<int> msort(const std::vector<int>& input)
+template <typename T>
+std::vector<T> msort(const std::vector<T>& input)
 {
 	if (input.size() == 1)
 	{
 		return input;
 	}
 	else {
-		std::vector<int> left(input.begin(), input.begin() + (input.size() / 2));
-		std::vector<int> right(input.begin() + (input.size() / 2), input.end());
+		std::vector<T> left(input.begin(), input.begin() + (input.size() / 2));
+		std::vector<T> right(input.begin() + (input.size() / 2), input.end());
 		return merge(msort(left), msort(right));
 	}
 }
@@ -82,4 +84,5 @@ int main()
 		std::cout << i << ' ';
 	}
 	std::cout << '\n';
+	system("pause");
 }
