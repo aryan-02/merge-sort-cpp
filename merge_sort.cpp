@@ -4,7 +4,7 @@
 
 template<typename T>
 std::vector<T> merge(const std::vector<T>& a, const std::vector<T>& b) 
-{ // Merges two already sorted arrays into a combined sorted array
+{ // Merges two already sorted vectors into a combined sorted array
 	int iter_a{};
 	int iter_b{};
 	const unsigned int size_a{a.size()};
