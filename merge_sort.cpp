@@ -3,8 +3,8 @@
 #include <limits>
 
 template<typename T>
-std::vector<T> merge(const std::vector<T>& a, const std::vector<T>& b)
-{
+std::vector<T> merge(const std::vector<T>& a, const std::vector<T>& b) 
+{ // Merges two already sorted arrays into a combined sorted array
 	int iter_a{};
 	int iter_b{};
 	const unsigned int size_a{a.size()};
@@ -47,12 +47,12 @@ std::vector<T> msort(const std::vector<T>& input)
 {
 	if (input.size() == 1)
 	{
-		return input;
+		return input; // Base case, a vector with one element is sorted by definition
 	}
 	else {
 		std::vector<T> left(input.begin(), input.begin() + (input.size() / 2));
 		std::vector<T> right(input.begin() + (input.size() / 2), input.end());
-		return merge(msort(left), msort(right));
+		return merge(msort(left), msort(right)); // Recursively break the vector into two halves and merge
 	}
 }
 
