@@ -88,5 +88,4 @@ int main()
 		std::cout << i << ' ';
 	}
 	std::cout << '\n';
-	system("pause");
 }
